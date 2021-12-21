@@ -1,3 +1,5 @@
+local QBCore = exports['qb-core']:GetCoreObject()
+
 AddEventHandler('QBCore:Server:PlayerLoaded', function(qbPlayer)
   debugPrint('QBPlayer:')
   printTable(qbPlayer)
@@ -8,7 +10,7 @@ AddEventHandler('QBCore:Server:PlayerLoaded', function(qbPlayer)
 
   exports.oxmysql:executeSync('UPDATE players SET phone_number = ? WHERE citizenid = ?', { phoneNumber, playerIdent })
 
-  TriggerEvent('npwd:newPlayer', {
+  exports.npwd:newPlayer({
     source = playerSrc,
     phoneNumber = charInfo.phone,
     identifier = playerIdent,
@@ -19,14 +21,14 @@ AddEventHandler('QBCore:Server:PlayerLoaded', function(qbPlayer)
 end)
 
 local currentResName = GetCurrentResourceName()
-AddEventHandler('onResourceStart', function(resName)
+AddEventHandler('onServerResourceStart', function(resName)
   if resName ~= currentResName then return end
 
   debugPrint('Launched with debug mode on')
   local players = QBCore.Functions.GetQBPlayers()
 
   for _,v in pairs(players) do
-    TriggerEvent('npwd:newPlayer', {
+    exports.npwd:newPlayer({
       source = v.PlayerData.source,
       identifier = v.PlayerData.citizenid,
       phoneNumber = v.PlayerData.charinfo.phone,
