@@ -8,7 +8,3 @@ server_scripts {
   'sv_utils.lua',
   'server.lua'
 }
-
-shared_scripts {
-  '@qb-core/import.lua'
-}

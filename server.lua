@@ -25,6 +25,7 @@ AddEventHandler('QBCore:Client:OnPlayerUnload', function(src)
 end)
 
 local currentResName = GetCurrentResourceName()
+
 AddEventHandler('onServerResourceStart', function(resName)
   if resName ~= currentResName then return end
 
@@ -37,7 +38,7 @@ AddEventHandler('onServerResourceStart', function(resName)
       identifier = v.PlayerData.citizenid,
       phoneNumber = v.PlayerData.charinfo.phone,
       firstname = v.PlayerData.charinfo.firstname,
-      lastname = v.PlayerData.charinfo.firstname,
+      lastname = v.PlayerData.charinfo.lastname,
     })
   end
 end)
