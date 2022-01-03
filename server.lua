@@ -20,6 +20,10 @@ AddEventHandler('QBCore:Server:PlayerLoaded', function(qbPlayer)
   debugPrint(('Loaded new player. S: %s, Iden: %s, Num: %s'):format(playerSrc, playerIdent, phoneNumber))
 end)
 
+AddEventHandler('QBCore:Client:OnPlayerUnload', function(src)
+  exports.npwd:unloadPlayer(src)
+end)
+
 local currentResName = GetCurrentResourceName()
 AddEventHandler('onServerResourceStart', function(resName)
   if resName ~= currentResName then return end
