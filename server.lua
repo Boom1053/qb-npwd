@@ -1,8 +1,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 
 AddEventHandler('QBCore:Server:PlayerLoaded', function(qbPlayer)
-  debugPrint('QBPlayer:')
-  printTable(qbPlayer)
   local playerIdent = qbPlayer.PlayerData.citizenid
   local phoneNumber = tostring(qbPlayer.PlayerData.charinfo.phone)
   local charInfo = qbPlayer.PlayerData.charinfo
