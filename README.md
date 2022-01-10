@@ -20,6 +20,7 @@ of NPWD and QBCore installed**
 1. Download this repository and place it in the `resources` directory
 2. Run the `patch.sql` to patch the database for NPWD
 3. Add `ensure qb-npwd` to your `server.cfg` (Start this resource after `QBCore` and `NPWD` have been started)
+4. Add `qb-npwd` to your config.json exportResource and your exportFunction `qb-npwd:phoneCheck`
 
 ## Additional Notes
 
